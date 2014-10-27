@@ -1,0 +1,19 @@
+/*body, section {
+	width: 500px;
+	height: 400px;
+	overflow-x: hidden;
+}*/
+
+/* Basic style tweaks */
+section { padding: 5px;}
+.navbar { margin-bottom: 2px; }
+#saved-text, #not-saved-text {
+  display: none;
+  font-weight: bold;
+}
+#saved-text {
+  color: green;
+}
+#not-saved-text {
+  color: red;
+}
