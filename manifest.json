@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
-	"name": "Local Loader",
-	"description": "Load local files for injection into website.",
+	"name": "Script Loader",
+	"description": "Load JS files for injection into website.",
 	"version": "0.2",
 	"permissions": [
 		"storage"
