@@ -9,7 +9,8 @@ function fadeInOut(id) {
 // Save value to storage.
 $('#save-index').click(function() {
   chrome.storage.local.set({
-    'index': $('#index-loc').val()
+    'index-url': $('#index-loc').val(),
+    'extension-active': $('#extension-active').prop('checked')
   }, function() {
     // Show success or failure.
     if (!chrome.runtime.lastError) {
@@ -20,8 +21,9 @@ $('#save-index').click(function() {
   });
 });
 
-chrome.storage.local.get('index', function(items) {
+chrome.storage.local.get(['index-url', 'extension-active'], function(items) {
   if (!chrome.runtime.lastError) {
-    $('#index-loc').val(items.index);
+    $('#index-loc').val(items['index-url']);
+    $('#extension-active').prop('checked', items['extension-active']);
   }
 });

@@ -1,10 +1,22 @@
-#saved-text, #not-saved-text {
-  display: none;
-  font-weight: bold;
-}
 #saved-text {
   color: green;
 }
 #not-saved-text {
   color: red;
+}
+body {
+  margin: 15px 30px;
+  width: 200px;
+}
+.feedback {
+  display: none;
+  font-weight: bold;
+  margin-right: 55px;
+  margin-top: 7px;
+  float: right;
+  margin-bottom: 0px;
+}
+#save-index {
+  float: left;
+  margin-left: 50px;
 }

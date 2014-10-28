@@ -15,14 +15,17 @@ function injectScript(path) {
 // If we're in a game, as evidenced by there being a port number, inject the scripts.
 if(document.URL.search(/\.\w+:/) >= 0) {
   // Get scripts from index link.
-  chrome.storage.local.get('index', function(items) {
+  chrome.storage.local.get(['index-url', 'extension-active'], function(items) {
     if (!chrome.runtime.lastError) {
-      var listLink = items.index;
-      // No changes needed for json, parsed automatically
-      $.get(listLink, function(scripts) {
-        console.log("Injecting " + scripts.length + " scripts.");
-        scripts.forEach(injectScript);
-      }, "json");
+      // Only inject if extension is active.
+      if (items['extension-active']) {
+        var listLink = items['index-url'];
+        // No changes needed for json, parsed automatically
+        $.get(listLink, function(scripts) {
+          console.log("Injecting " + scripts.length + " scripts.");
+          scripts.forEach(injectScript);
+        }, "json");
+      }
     }
   });
 }
