@@ -3,11 +3,12 @@ function removeScript() {
   this.parentNode.removeChild(this);
 }
 
-// Inject script given by path into page.
-function injectScript(path) {
+// Inject require.js into page and set data-main to path.
+function injectRequireScript(path) {
   var script = document.createElement('script');
   script.setAttribute("type", "application/javascript");
-  script.src = path;
+  script.setAttribute("data-main", path);
+  script.src = chrome.extension.getURL("js/require.js");
   script.onload = removeScript;
   (document.head||document.documentElement).appendChild(script);
 }
@@ -19,12 +20,15 @@ if(document.URL.search(/\.\w+:/) >= 0) {
     if (!chrome.runtime.lastError) {
       // Only inject if extension is active.
       if (items['extension-active']) {
-        var listLink = items['index-url'];
+        var requirementLink = items['index-url'];
+        injectRequireScript(requirementLink);
+        /*
         // No changes needed for json, parsed automatically
         $.get(listLink, function(scripts) {
           console.log("Injecting " + scripts.length + " scripts.");
           scripts.forEach(injectScript);
         }, "json");
+        */
       }
     }
   });
