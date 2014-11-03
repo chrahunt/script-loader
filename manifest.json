@@ -30,7 +30,6 @@
         "http://tangent.jukejuice.com/*"
       ],
       "js": [
-        "js/jquery-2.0.3.min.js",
         "js/page-injector.js"
       ],
       "run_at": "document_end"
