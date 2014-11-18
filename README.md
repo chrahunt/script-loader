@@ -1,7 +1,7 @@
 # Script Loader
 > Inject scripts at will.
 
-Script loader takes one input, the URL that, when visited, returns a JSON array of scripts that you would like to be injected into the page.
+Script loader takes one input, the URL of the file that serves as the [data-main](http://requirejs.org/docs/api.html#data-main) script for RequireJS.
 
 In its current form, the extension carries out this script injection when a TagPro game is active.
 
