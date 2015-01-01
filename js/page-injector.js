@@ -2,7 +2,7 @@
  * Check for presence of an element, execute callback when found or try again.
  */
 function delayedCheck(element, callback) {
-  console.debug("Checking for " + element);
+  //console.debug("Checking for " + element); // DEBUG
   var elt = document.querySelector(element);
   if (elt) {
     if (callback) {
