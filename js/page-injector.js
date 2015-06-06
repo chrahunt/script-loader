@@ -33,8 +33,8 @@ function removeScript() {
 function injectRequireScript(path) {
   var script = document.createElement('script');
   script.setAttribute("type", "text/javascript");
-  script.setAttribute("data-main", path);
-  script.src = chrome.extension.getURL("js/require.js");
+  script.src = path;
+  
   //script.onload = removeScript;
   (document.head||document.documentElement).appendChild(script);
 }
